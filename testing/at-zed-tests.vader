@@ -1,0 +1,33 @@
+" Test 1
+Do (Non input string, simple):
+  2@zip\<CR>
+
+Expect (Two p's):
+  pp
+
+
+" Test 2
+Given (If statement):
+  if this == that
+    echo "Monkey"
+  endif
+
+Do (Non input string, more complex):
+  2@zA |J\<CR>
+
+Expect (Two p's):
+  if this == that | echo "Monkey" | endif
+
+
+" Test 3 - Known bug, trying to figure it out atm
+Given (If statement):
+  if this == that
+    echo "Monkey"
+  endif
+
+Do (Non input string, more complex):
+  2@zA |\\<Esc>J\<CR>
+
+Expect (Two p's):
+  if this == that | echo "Monkey" | endif
+

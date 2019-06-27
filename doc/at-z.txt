@@ -1,0 +1,109 @@
+*AtZed* *at-zed* - Ad-hoq Macro
+
+                                                                    ~
+                                         ,----,                     ~
+         ,---,           ___           .'   .`|                     ~
+        '  .' \        ,--.'|_      .'   .'   ;              ,---,  ~
+       /  ;    '.      |  | :,'   ,---, '    .'            ,---.'|  ~
+      :  :       \     :  : ' :   |   :     ./             |   | :  ~
+      :  |   /\   \  .;__,'  /    ;   | .'  /   ,---.      |   | |  ~
+      |  :  ' ;.   : |  |   |     `---' /  ;   /     \   ,--.__| |  ~
+      |  |  ;/  \   \:__,'| :       /  ;  /   /    /  | /   ,'   |  ~
+      '  :  | \  \ ,'  '  : |__    ;  /  /--,.    ' / |.   '  /  |  ~
+      |  |  '  '--'    |  | '.'|  /  /  / .`|'   ;   /|'   ; |:  |  ~
+      |  :  :          ;  :    ;./__;       :'   |  / ||   | '/  '  ~
+      |  | ,'          |  ,   / |   :     .' |   :    ||   :    :|  ~
+      `--''             ---`-'  ;   |  .'     \   \  /  \   \  /    ~
+                                `---'          `----'    `----'     ~
+                                                                    ~
+      
+==========================================================================
+CONTENTS                                                     *AtZedContents*
+
+  1. Usage ..................................... |AtZedUsage|
+  2. Configuration ............................. |AtZedConfiguration|
+  3. TODOs ..................................... |VirkSpaceTODOs|
+  4. Bugs ...................................... |VirkSpaceBugs|
+  5. License ................................... |VirkSpaceLicense|
+
+==========================================================================
+USAGE                                                           *AtZedUsage*
+
+
+This is a very short plugin, I was considering just writing it into my 
+ configuration and forgetting about it however, short though it is, it may 
+ be of some use to others as and easy solution to a problem that doesn't 
+ really exist
+
+One can write a one-time-only macro using `@z`, the content of this macro 
+ is written upon calling.
+
+Essentially, instead of:
+
+  `qwp2jq3@w`
+
+, one may use:
+
+  `4@zp2j<CR>`
+
+, saving two keystrokes. 
+
+I prefer this as I tend to know the number of times I'll need to call a 
+ macro before making it; by creating then running the macro, this 
+ figure and my view of it changes. In short, I'd prefer to say "do this five 
+ times" instead of "see this I've done once, do that four more times".
+
+
+==========================================================================
+CONFIGURATION                                           *AtZedConfiguration*
+
+
+There are only two things to configure for this little plugin.
+
+  *g:at_zed_macro_char*              Default: `z`
+
+                                   Desc: The character to which the macro 
+                                         will bind.
+
+
+  *g:at_zed_with_rc*                 Default: `0`
+
+                                   Desc: Whether mapped keys will be 
+                                         upheld when running the macro.
+
+
+==========================================================================
+TODOS                                                           *AtZedTODOs*
+
+
+  - Bug fix(es)
+
+
+==========================================================================
+BUGS                                                             *AtZedBugs*
+
+
+1. The one bug that I'm yet to figure out is that input strings, from 
+ `input("")` do not accept escape characters and I can't spot a way to fix
+ this - probably some built-in I don't know. As an example:
+
+    `exec "norm! ip\<Esc>"` will input the character 'p'
+
+  , however
+
+    `exec "norm! " . input("") <- "ip\<Esc>"` will input the string 
+     "p\<Esc>"
+
+  This can be solved with inputing `ip^V^[`.
+
+
+==========================================================================
+LICENSE                                                       *AtZedLicense*
+
+  
+This plugin is distributed and can be redistributed under the GPL v2.0.
+  
+  See `$(git rev-parse --show-toplevel)/LICENSE`
+
+
+==========================================================================
